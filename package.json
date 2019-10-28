@@ -1,0 +1,35 @@
+{
+  "name": "bulma-component-base",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "storybook": "start-storybook -p 9090"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@storybook/addon-info": "^5.2.1",
+    "@storybook/react": "^5.2.1",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.12",
+    "@types/storybook__react": "^4.0.2",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "css-modules-typescript-loader": "^3.0.1",
+    "jest": "^24.9.0",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "react-docgen-typescript-loader": "^3.3.0",
+    "style-loader": "^1.0.0",
+    "ts-jest": "^24.1.0",
+    "ts-loader": "^6.2.0",
+    "typescript": "^3.6.3"
+  },
+  "dependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  }
+}
