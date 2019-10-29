@@ -29,7 +29,8 @@
     "declaration": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "types": ["@wdio/mocha-framework", "node", "@wdio/sync"]
   },
   "include": [
     "src/**/*", ".storybook/stories.tsx"
