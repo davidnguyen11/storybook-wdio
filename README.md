@@ -11,3 +11,12 @@
 ```bash
 docker run -d -p 4444:4444 -p 5900:5900 selenium/standalone-chrome-debug
 ```
+
+**Screen Sharing**
+
+*Mac*
+
+Open the `Screen Sharing`
+
+- Hostname: <IP>:5900
+- Password: secret

@@ -2,7 +2,9 @@ const assert = require('assert');
 const path = require('path');
 const fs = require('fs');
 const ip = require('ip');
+import * as style from '../style.less';
 
+console.log(style);
 console.log(ip.address());
 
 const url = 'src/components/button/__test/test.spec.ts';

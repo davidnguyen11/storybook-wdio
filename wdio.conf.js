@@ -1,3 +1,4 @@
+const hook = require('css-modules-require-hook');
 const baseUrl = 'https://webdriver.io';
 
 exports.config = {
@@ -33,5 +34,13 @@ exports.config = {
 	before: function(capabilities, specs) {
 		// require('ts-node/register');
 		require('ts-node').register({ files: true });
+	},
+	beforeSession: function() {
+		console.log('before session');
+		require.extensions['.less'] = require.extensions['.less'];
+		hook({
+			extensions: '.less',
+			generateScopedName: '[local]--[hash:base64:5]',
+		});
 	},
 };
