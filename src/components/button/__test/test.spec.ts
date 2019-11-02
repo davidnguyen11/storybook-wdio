@@ -1,7 +1,8 @@
-const assert = require('assert');
-const path = require('path');
-const fs = require('fs');
-const ip = require('ip');
+import *  as assert from 'assert';
+import * as path from 'path';
+import * as fs from 'fs';
+import * as ip from 'ip';
+
 import * as style from '../style.less';
 
 console.log(style);
@@ -26,9 +27,19 @@ describe(`visual regression for "${componentName}"`, () => {
         fs.mkdirSync(expectedDirPath);
       }
       browser.url(`http://${ip.address()}:9090/iframe.html?id=button--${testCase}`);
-  
-        browser.saveScreenshot(path.join(expectedDirPath, `${componentName}-${testCase}.png`));
-        assert.strictEqual(1, 1);
+      /*
+       * Why?
+       ** The storybook started and generate the class name with hash (A)
+       ** The test runs, it imports the style and generate the class name hash (B)
+       ** (A) !== (B)
+       * Solution
+       ** Use the "^=" to get the prefix matched
+       */
+      const prefixElementContainer = style.container.split('--')[0];
+      const el = $(`[class^="${prefixElementContainer}"]`);
+
+      el.saveScreenshot(path.join(expectedDirPath, `${componentName}-${testCase}.png`));
+      assert.strictEqual(1, 1);
     });
   });
 });

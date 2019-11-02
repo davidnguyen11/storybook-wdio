@@ -36,9 +36,13 @@ exports.config = {
 		require('ts-node').register({ files: true });
 	},
 	beforeSession: function() {
-		console.log('before session');
-		require.extensions['.less'] = require.extensions['.less'];
-		hook({
+		// require.extensions['.less'] = require.extensions['.less'];
+    /*
+     * When runs the test, it doesn't understand `.less` syntax
+     * So before running test, need to pre-compile the `.less`
+     */
+    hook({
+      camelCase: true,
 			extensions: '.less',
 			generateScopedName: '[local]--[hash:base64:5]',
 		});
