@@ -7,7 +7,7 @@ export class Button extends React.Component<Props> {
     const className = [style.container, style[this.props.size || '']];
 
     return (
-      <button id='button' className={className.join(' ')}>
+      <button id="button" className={className.join(' ')}>
         {this.props.children}
       </button>
     );

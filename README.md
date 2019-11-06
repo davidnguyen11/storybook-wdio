@@ -14,9 +14,11 @@ docker run -d -p 4444:4444 -p 5900:5900 selenium/standalone-chrome-debug
 
 **Screen Sharing**
 
+For debug with visual regression testing.
+
 *Mac*
 
 Open the `Screen Sharing`
 
-- Hostname: <IP>:5900
+- Hostname: `YOUR_MACHINE_IP`:5900
 - Password: secret

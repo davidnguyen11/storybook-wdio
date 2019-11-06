@@ -6,6 +6,8 @@
 # testing
 /coverage
 /flow-coverage
+*/**/actual
+*/**/diff
 
 # production
 /build

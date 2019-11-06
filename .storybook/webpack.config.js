@@ -6,13 +6,13 @@ module.exports = ({ config }) => {
     test: /\.(ts|tsx)$/,
     use: [
       {
-        loader: require.resolve('ts-loader')
+        loader: require.resolve('ts-loader'),
       },
       // Optional
       {
-        loader: require.resolve('react-docgen-typescript-loader')
-      }
-    ]
+        loader: require.resolve('react-docgen-typescript-loader'),
+      },
+    ],
   });
 
   config.module.rules.push({
@@ -29,24 +29,24 @@ module.exports = ({ config }) => {
           modules: {
             mode: 'local',
             localIdentName: '[local]--[hash:base64:5]',
-            context: path.resolve(__dirname, 'src')
-          }
-        }
+            context: path.resolve(__dirname, 'src'),
+          },
+        },
       },
       {
         loader: 'less-loader',
         options: {
-          sourceMap: true
-        }
-      }
+          sourceMap: true,
+        },
+      },
     ],
-    include: path.resolve(__dirname, '../')
+    include: path.resolve(__dirname, '../'),
   });
 
   config.resolve.modules = [
     ...(config.resolve.modules || []),
     path.resolve(__dirname, '../'),
-    path.resolve(__dirname, '../src')
+    path.resolve(__dirname, '../src'),
   ];
 
   config.resolve.extensions.push('.ts', '.tsx', '.less');
@@ -54,7 +54,7 @@ module.exports = ({ config }) => {
   config.plugins.push(
     new webpack.DefinePlugin({
       COMPONENT_PATTERN: /^.*\index.tsx$/,
-      PROPS_PATTERN: /^.*\.spec.tsx$/
+      PROPS_PATTERN: /^.*\.spec.tsx$/,
     })
   );
 
