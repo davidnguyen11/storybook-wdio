@@ -6,7 +6,7 @@
   "scripts": {
     "build": "build-storybook -c .storybook -o build",
     "storybook": "start-storybook -p 9090",
-    "test": "wdio --spec src/components/button/__test/test.spec.ts"
+    "test": "wdio --spec"
   },
   "keywords": [],
   "author": "",

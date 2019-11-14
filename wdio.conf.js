@@ -3,9 +3,9 @@ const hook = require('css-modules-require-hook');
 
 exports.config = {
   runner: 'local',
-  hostname: '127.0.0.1',
-  port: 4444,
-  specs: ['./test/specs/**/*.js'],
+  // hostname: '127.0.0.1',
+  // port: 4444,
+  specs: ['**/__test/**/index.spec.ts'],
   exclude: [
     // 'path/to/excluded/files'
   ],

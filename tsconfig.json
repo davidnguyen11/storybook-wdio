@@ -15,10 +15,11 @@
     "jsx": "react",
     "moduleResolution": "node",
     "rootDirs": [
+      ".",
       "src",
       "stories"
     ],
-    "baseUrl": "src",
+    "baseUrl": ".",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -33,7 +34,7 @@
     "types": ["@wdio/mocha-framework", "node", "@wdio/sync"]
   },
   "include": [
-    "src/**/*", ".storybook/stories.tsx"
+    "src/**/*", ".storybook/stories.tsx", "typings"
   ],
   "exclude": [
     "node_modules",

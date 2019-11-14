@@ -10,11 +10,13 @@ export class Text extends React.Component<Props> {
   public render(): JSX.Element {
     const { background } = this.props;
     return (
-      <span
-        className={`${style.container} ${style[`background-${background}`]}`}
-      >
-        {this.props.children}
-      </span>
+      <div className={style.container}>
+        <span
+          className={`${style[`background-${background}`]}`}
+        >
+          {this.props.children}
+        </span>
+      </div>
     );
   }
 }
