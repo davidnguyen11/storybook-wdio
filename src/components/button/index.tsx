@@ -4,8 +4,10 @@ import * as style from './style.less';
 
 export class Button extends React.Component<Props> {
   public render(): JSX.Element {
+    const className = [style.container, style[this.props.size || '']];
+
     return (
-      <button id='button' className={style.button}>
+      <button id="button" className={className.join(' ')}>
         {this.props.children}
       </button>
     );

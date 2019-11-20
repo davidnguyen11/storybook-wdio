@@ -1,0 +1,86 @@
+/// <reference types="@wdio/sync/webdriverio"/>
+
+import * as assert from 'assert';
+import * as path from 'path';
+import * as fs from 'fs';
+import * as ip from 'ip';
+
+const STORYBOOK_PORT = 9090;
+
+export class VisualRegressionTest {
+  private componentFilePath: string;
+  private fileNames: Array<string>;
+  private componentName: string;
+  private elementClassName?: string;
+  private prefixElementWrapperClassName?: string;
+
+  constructor(elementClassName?: string) {
+    this.componentFilePath = this.getComponentFilePath();
+    this.fileNames = this.getTestCaseNames();
+    this.componentName = this.getComponentFileName();
+    this.elementClassName = elementClassName;
+    this.prefixElementWrapperClassName = this.elementClassName && this.elementClassName.split('--')[0];
+  }
+
+  public run() {
+    describe(`visual regression for "${this.componentName}"`, () => {
+      this.fileNames.forEach((testCase: string) => {
+        const expectedDirPath = path.join(path.dirname(this.componentFilePath), 'expected');
+        const actualDirPath = path.join(path.dirname(this.componentFilePath), 'actual');
+        const diffDirPath = path.join(path.dirname(this.componentFilePath), 'diff');
+    
+        it(`should return the screenshot of "${testCase}"`, () => {
+          this.openTestCase(testCase);
+          /*
+           * Why?
+           ** The storybook started and generate the class name with hash (A)
+           ** The test runs, it imports the style and generate the class name hash (B)
+           ** (A) !== (B)
+           * Solution
+           ** Use the "^=" to get the prefix matched
+           */
+          // const prefixElementContainer = this.elementClassName && this.elementClassName.split('--')[0];
+          const screenshotName = `${this.componentName}-${testCase}`;
+          const element = this.getElement();
+    
+          // Documentation
+          // https://github.com/wswebcreation/webdriver-image-comparison/blob/master/docs/OPTIONS.md#method-options
+          const methodOptions = {
+            actualFolder: actualDirPath,
+            // The baseline folder and the file name
+            baselineFolder: expectedDirPath,
+            // This following folder is optional and only if there is a mismatch
+            // The folder that holds the diffs and the file name
+            diffFolder: diffDirPath,
+          };
+    
+          assert.equal(browser.checkElement(element, screenshotName, methodOptions), 0);
+        });
+      });
+    });
+  }
+
+  private openTestCase(name: string) {
+    browser.url(
+      `http://${ip.address()}:${STORYBOOK_PORT}/iframe.html?id=${this.componentName}--${name}`
+    );
+  }
+
+  private getElement() {
+    return $(`[class^="${this.prefixElementWrapperClassName}"]`);
+  }
+
+  private getComponentFilePath() {
+    return process.argv[process.argv.length - 1];
+  }
+
+  private getTestCaseNames() {
+    return fs
+      .readdirSync(path.join(path.dirname(this.componentFilePath), 'data'))
+      .map((item: string) => path.basename(item, '.spec.tsx'));
+  }
+
+  private getComponentFileName() {
+    return path.basename(path.dirname(path.dirname(this.componentFilePath)));
+  }
+}
