@@ -15,10 +15,11 @@
     "jsx": "react",
     "moduleResolution": "node",
     "rootDirs": [
+      ".",
       "src",
       "stories"
     ],
-    "baseUrl": "src",
+    "baseUrl": ".",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -29,10 +30,11 @@
     "declaration": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "types": ["@wdio/mocha-framework", "node", "@wdio/sync"]
   },
   "include": [
-    "src/**/*", ".storybook/stories.tsx"
+    "src/**/*", ".storybook/stories.tsx", "typings"
   ],
   "exclude": [
     "node_modules",
