@@ -34,7 +34,7 @@
     "types": ["@wdio/mocha-framework", "node", "@wdio/sync"]
   },
   "include": [
-    "src/**/*", ".storybook/stories.tsx", "typings"
+    "src/**/*", ".storybook/stories.tsx", "typings", "*.d.ts"
   ],
   "exclude": [
     "node_modules",
