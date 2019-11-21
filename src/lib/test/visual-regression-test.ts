@@ -14,8 +14,8 @@ export class VisualRegressionTest {
   private elementClassName?: string;
   private prefixElementWrapperClassName?: string;
 
-  constructor(elementClassName?: string) {
-    this.componentFilePath = this.getComponentFilePath();
+  constructor(path: string, elementClassName?: string) {
+    this.componentFilePath = path;
     this.fileNames = this.getTestCaseNames();
     this.componentName = this.getComponentFileName();
     this.elementClassName = elementClassName;
@@ -25,9 +25,9 @@ export class VisualRegressionTest {
   public run() {
     describe(`visual regression for "${this.componentName}"`, () => {
       this.fileNames.forEach((testCase: string) => {
-        const expectedDirPath = path.join(path.dirname(this.componentFilePath), 'expected');
-        const actualDirPath = path.join(path.dirname(this.componentFilePath), 'actual');
-        const diffDirPath = path.join(path.dirname(this.componentFilePath), 'diff');
+        const expectedDirPath = `${this.componentFilePath}/expected`;
+        const actualDirPath = `${this.componentFilePath}/actual`;
+        const diffDirPath = `${this.componentFilePath}/diff`;
     
         it(`should return the screenshot of "${testCase}"`, () => {
           this.openTestCase(testCase);
@@ -70,17 +70,13 @@ export class VisualRegressionTest {
     return $(`[class^="${this.prefixElementWrapperClassName}"]`);
   }
 
-  private getComponentFilePath() {
-    return process.argv[process.argv.length - 1];
-  }
-
   private getTestCaseNames() {
     return fs
-      .readdirSync(path.join(path.dirname(this.componentFilePath), 'data'))
+      .readdirSync(`${this.componentFilePath}/data`)
       .map((item: string) => path.basename(item, '.spec.tsx'));
   }
 
   private getComponentFileName() {
-    return path.basename(path.dirname(path.dirname(this.componentFilePath)));
+    return path.basename(path.dirname(this.componentFilePath));
   }
 }
