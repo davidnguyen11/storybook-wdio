@@ -13,4 +13,5 @@ jobs:
         with:
           node-version: '10.x'
       - run: npm install
+      - run: docker run -d -p 4444:4444 -p 5900:5900 selenium/standalone-chrome-debug
       - run: npm test
