@@ -1,6 +1,7 @@
 #!/bin/sh
-MAX_RETRIES=10
 endpoint=$1
+MAX_RETRIES=30
+DURATION=5
 echo "health checking endpoint: $endpoint"
 status='000'
 getStatus() {
@@ -12,6 +13,6 @@ while [ "$status" != "200" -a $retries != $MAX_RETRIES ]
 do 
 echo "waiting for storybook, status:$status .... retries: $retries times" 
 retries=`expr $retries + 1`
-sleep 3
+sleep $DURATION
 getStatus
 done
