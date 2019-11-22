@@ -5,7 +5,7 @@ DURATION=5
 echo "health checking endpoint: $endpoint"
 status='000'
 getStatus() {
-    status=$(curl -Is $endpoint| head -n 1 | cut -d$' ' -f2)
+    status=$(curl -Is $endpoint| head -n 1 | cut -d ' ' -f 2)
 }
 retries=0
 getStatus
