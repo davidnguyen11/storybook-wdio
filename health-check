@@ -1,0 +1,16 @@
+#!/bin/sh
+MAX_RETRIES=2
+endpoint=$1
+echo "health checking endpoint: $endpoint"
+status=''
+getStatus() {
+    status=$(curl -Is $endpoint| head -n 1 |cut -d$' ' -f2)
+}
+retries=0
+while [ "$status" != "200" -a $retries != $MAX_RETRIES ]
+do 
+echo "waiting for storybook, status:$status .... retries: $retries times" 
+retries=`expr $retries + 1`
+sleep 3
+getStatus
+done
