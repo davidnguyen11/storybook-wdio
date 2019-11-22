@@ -16,4 +16,5 @@ jobs:
       - run: docker run -d -p 4444:4444 -p 5900:5900 selenium/standalone-chrome-debug
       - run: nohup npm run storybook > out.txt &
       - run: ./health-check http://localhost:9090/
+      - run: cat out.txt
       - run: npm test
