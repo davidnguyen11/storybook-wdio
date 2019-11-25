@@ -8,6 +8,8 @@
 /flow-coverage
 */**/actual
 */**/diff
+*/**/expected
+
 
 # production
 /build
