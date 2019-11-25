@@ -43,7 +43,6 @@
     "tsconfig-paths": "^3.9.0",
     "typescript": "^3.6.3",
     "url-loader": "^2.2.0",
-    "wdio-chromedriver-service": "^5.0.2",
     "wdio-image-comparison-service": "^1.8.0",
     "webdriverio": "^5.15.4"
   },
