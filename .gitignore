@@ -31,4 +31,4 @@ package-lock.json
 yarn.lock
 
 # Less
-*.less.d.ts
+# *.less.d.ts
