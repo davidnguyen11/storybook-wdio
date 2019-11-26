@@ -1,4 +1,8 @@
-# React Bulma storybook
+# Storybook Visual Regression boilerplate
+
+[![Build Status](https://travis-ci.com/davidnguyen179/storybook-visual-regression-testing-boilerplate.svg?token=8bxp2xLSAoW15sG7fwhv&branch=master)](https://travis-ci.com/davidnguyen179/storybook-visual-regression-testing-boilerplate)
+
+<hr />
 
 ## Visual regression testing
 
