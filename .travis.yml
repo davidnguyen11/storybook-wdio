@@ -4,8 +4,12 @@ node_js:
   - '10.15.3'
 install:
   - 'npm i'
-script:
+before_script:
   - npm run build
+  - npm run storybook-production &
+script:
+  - docker run -d -p 4444:4444 -p 5900:5900 selenium/standalone-chrome-debug
+  - npm test
 branches:
   only:
     - add_travis_ci
