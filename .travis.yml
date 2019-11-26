@@ -1,0 +1,11 @@
+sudo: false
+language: node_js
+node_js:
+  - '10.15.3'
+install:
+  - 'npm i'
+script:
+  - npm run build
+branches:
+  only:
+    - add_travis_ci
