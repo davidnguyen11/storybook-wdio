@@ -8,6 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:10.16.3
+      - image: selenium/standalone-chrome-debug
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -15,6 +16,7 @@ jobs:
       # - image: circleci/mongo:3.4.4
 
     steps:
+      - setup_remote_docker
       - checkout
 
       # Download and cache dependencies
@@ -24,6 +26,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
+      - run: docker run -d -p 4444:4444 -p 5900:5900 selenium/standalone-chrome-debug
       - run: npm install
 
       - save_cache:
@@ -32,7 +35,10 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: npm run build
-      - run: npm run storybook-production &
-      - run: docker run -d -p 4444:4444 -p 5900:5900 selenium/standalone-chrome-debug
+      - run:
+          name: Starting the storybook with production mode
+          command: npm run storybook-production
+          background: true
+      
       # run tests!
       - run: npm test
