@@ -1,0 +1,54 @@
+{
+  "projectName": "storybook-wdio",
+  "projectOwner": "storybook-wdio",
+  "repoType": "github",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "davidnguyen179",
+      "name": "Dzung Nguyen",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/6290720?s=460&v=4",
+      "profile": "https://www.dzungnguyen.dev/about",
+      "contributions": [
+        "code",
+        "doc",
+        "infra",
+        "test",
+        "review",
+        "blog",
+        "bug",
+        "example",
+        "ideas"
+      ]
+    },
+    {
+      "login": "nvhoc",
+      "name": "Hoc Nguyen",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/7335034?s=460&v=4",
+      "profile": "https://github.com/nvhoc",
+      "contributions": [
+        "code",
+        "ideas",
+        "review",
+        "bug"
+      ]
+    },
+    {
+      "login": "conandk",
+      "name": "Khoa Do",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/12934183?s=460&v=4",
+      "profile": "https://github.com/conandk",
+      "contributions": [
+        "code",
+        "review",
+        "bug"
+      ]
+    }
+  ],
+  "repoHost": "https://github.com",
+  "contributorsPerLine": 7
+}
