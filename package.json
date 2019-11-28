@@ -1,5 +1,5 @@
 {
-  "name": "bulma-component-base",
+  "name": "storybook-wdio",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,8 +9,18 @@
     "storybook": "start-storybook -p 9090",
     "test": "wdio --spec"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "storybook",
+    "visual regression testing",
+    "webdriver",
+    "webdriverio",
+    "selenium"
+  ],
+  "author": "David Nguyen <dzungnguyen179@gmail.com> (https://www.dzungnguyen.dev/)",
+  "contributors": [
+    "Hoc Nguyen <hoc.nguyenviet90@gmail.com> (hoc.nguyenviet90@gmail.com)",
+    "Khoa Do <ddangkhoa94@gmail.com> (ddangkhoa94@gmail.com)"
+  ],
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.6.2",
@@ -52,5 +62,13 @@
     "express": "^4.17.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidnguyen179/storybook-wdio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/davidnguyen179/storybook-wdio/issues"
+  },
+  "homepage": "https://github.com/davidnguyen179/storybook-wdio"
 }
