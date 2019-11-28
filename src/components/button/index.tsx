@@ -7,18 +7,23 @@ export class Button extends React.Component<Props> {
     const className = [style.container, style[this.props.size || '']];
 
     return (
-      <button id="button" className={className.join(' ')}>
+      <button onClick={this.props.onClick} id="button" className={className.join(' ')}>
         {this.props.children}
       </button>
     );
   }
 }
 
-export type Props = StateProps;
+export type Props = DataProps & EventProps;
 
-interface StateProps {
+interface DataProps {
   /** Children node */
   children: string | React.ReactNode;
   /** Size of button */
   size?: 'small' | 'medium' | 'large';
+}
+
+interface EventProps {
+  /** Click event */
+  onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 }
