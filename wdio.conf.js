@@ -5,7 +5,7 @@ exports.config = {
   runner: 'local',
   // hostname: '127.0.0.1',
   // port: 4444,
-  specs: ['**/__test/**/index.spec.ts'],
+  specs: ['**/tests/**/index.spec.ts'],
   exclude: [
     // 'path/to/excluded/files'
   ],
@@ -14,6 +14,10 @@ exports.config = {
     {
       maxInstances: 1,
       browserName: 'chrome',
+      'goog:chromeOptions': {
+        // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
+        args: ['--disable-gpu'],
+      },
     },
   ],
   services: [

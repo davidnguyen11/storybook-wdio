@@ -21,9 +21,9 @@ export class Text extends React.Component<Props> {
   }
 }
 
-export type Props = StateProps;
+export type Props = DataProps;
 
-interface StateProps {
+interface DataProps {
   /* Children node */
   children: string;
   /* Background color */
