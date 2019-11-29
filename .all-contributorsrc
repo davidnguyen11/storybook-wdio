@@ -14,15 +14,11 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/6290720?s=460&v=4",
       "profile": "https://www.dzungnguyen.dev/about",
       "contributions": [
-        "code",
         "doc",
-        "infra",
-        "test",
+        "code",
+        "ideas",
         "review",
-        "blog",
-        "bug",
-        "example",
-        "ideas"
+        "bug"
       ]
     },
     {
@@ -50,5 +46,6 @@
     }
   ],
   "repoHost": "https://github.com",
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "commitConvention": "none"
 }
