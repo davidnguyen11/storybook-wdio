@@ -12,8 +12,14 @@
 
 **Run docker**
 
+*chrome*
 ```bash
 docker run -d -p 4444:4444 -p 5900:5900 selenium/standalone-chrome-debug
+```
+
+*firebox*
+```bash
+docker run -d -p 5555:4444 -p 5901:5900 selenium/standalone-chrome-debug
 ```
 
 **Screen Sharing**
@@ -24,7 +30,14 @@ For debug with visual regression testing.
 
 Open the `Screen Sharing`
 
+*chrome*
+
 - Hostname: `YOUR_MACHINE_IP`:5900
+- Password: secret
+
+*firefox*
+
+- Hostname: `YOUR_MACHINE_IP`:5901
 - Password: secret
 
 **Run test**
