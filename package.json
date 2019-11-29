@@ -7,6 +7,8 @@
     "build": "build-storybook -c .storybook -o build",
     "storybook-production": "node ./server",
     "storybook": "start-storybook -p 9090",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate",
     "test": "wdio --spec"
   },
   "keywords": [
@@ -36,6 +38,7 @@
     "@wdio/mocha-framework": "^5.15.1",
     "@wdio/spec-reporter": "^5.15.2",
     "@wdio/sync": "^5.15.1",
+    "all-contributors-cli": "^6.11.1",
     "babel-loader": "^8.0.6",
     "chromedriver": "^78.0.1",
     "css-loader": "^3.2.0",
