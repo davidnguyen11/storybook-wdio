@@ -15,5 +15,9 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm run storybook-production &
-      - run: docker run -d -p 4444:4444 -p 5900:5900 selenium/standalone-chrome-debug
-      - run: npm test
+      - run: docker run --name=selenium -d -p 4444:4444 -p 5900:5900 selenium/standalone-chrome-debug
+      - run: npm run test:chrome
+      - run: docker rm -f selenium
+      - run: docker run --name=selenium -d -p 5555:4444 -p 5901:5900 selenium/standalone-firefox-debug
+      - run: npm run test:firefox
+      - run: docker rm -f selenium
