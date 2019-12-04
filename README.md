@@ -19,7 +19,7 @@ docker run -d -p 4444:4444 -p 5900:5900 selenium/standalone-chrome-debug
 
 *firebox*
 ```bash
-docker run -d -p 5555:4444 -p 5901:5900 selenium/standalone-chrome-debug
+docker run -d -p 5555:4444 -p 5901:5900 selenium/standalone-firefox-debug
 ```
 
 **Screen Sharing**
