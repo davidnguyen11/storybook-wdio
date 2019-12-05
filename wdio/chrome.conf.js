@@ -2,7 +2,7 @@ const { baseConfig, ports } = require('./base.conf');
 
 exports.config = {
   ...baseConfig,
-  port: 4444,
+  port: parseInt(process.env.WDIO_PORT || 4444),
   capabilities: [
     {
       maxInstances: 1,

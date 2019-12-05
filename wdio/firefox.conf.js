@@ -2,7 +2,7 @@ const { baseConfig, ports } = require('./base.conf');
 
 exports.config = {
   ...baseConfig,
-  port: 5555,
+  port: parseInt(process.env.WDIO_PORT || 5555),
   capabilities: [
     {
       // maxInstances can get overwritten per capability. So if you have an in house Selenium
