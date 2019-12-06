@@ -5,6 +5,8 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as ip from 'ip';
 
+import exec from './../exec'
+
 const STORYBOOK_PORT = 9090;
 
 export class VisualRegressionTest {
@@ -23,12 +25,15 @@ export class VisualRegressionTest {
   }
 
   public run() {
-    describe(`visual regression for "${this.componentName}"`, () => {
+    describe(`visual regression for "${this.componentName}"`, async () => {
+      const expectedDirPath = `${this.componentFilePath}/expected`;
+      const actualDirPath = `${this.componentFilePath}/actual`;
+      const diffDirPath = `${this.componentFilePath}/diff`;
+      console.log('Remove all generated dirs')
+      await exec(`rm -rf ${expectedDirPath}`)
+      await exec(`rm -rf ${actualDirPath}`)
+      await exec(`rm -rf ${diffDirPath}`)
       this.fileNames.forEach((testCase: string) => {
-        const expectedDirPath = `${this.componentFilePath}/expected`;
-        const actualDirPath = `${this.componentFilePath}/actual`;
-        const diffDirPath = `${this.componentFilePath}/diff`;
-    
         it(`should return the screenshot of "${testCase}"`, () => {
           this.openTestCase(testCase);
           /*
@@ -42,7 +47,7 @@ export class VisualRegressionTest {
           // const prefixElementContainer = this.elementClassName && this.elementClassName.split('--')[0];
           const screenshotName = `${this.componentName}-${testCase}`;
           const element = this.getElement();
-    
+
           // Documentation
           // https://github.com/wswebcreation/webdriver-image-comparison/blob/master/docs/OPTIONS.md#method-options
           const methodOptions = {
@@ -53,7 +58,7 @@ export class VisualRegressionTest {
             // The folder that holds the diffs and the file name
             diffFolder: diffDirPath,
           };
-    
+
           assert.equal(browser.checkElement(element, screenshotName, methodOptions), 0);
         });
       });
