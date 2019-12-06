@@ -5,8 +5,6 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as ip from 'ip';
 
-import exec from './../exec'
-
 const STORYBOOK_PORT = 9090;
 
 export class VisualRegressionTest {
@@ -29,10 +27,6 @@ export class VisualRegressionTest {
       const expectedDirPath = `${this.componentFilePath}/expected`;
       const actualDirPath = `${this.componentFilePath}/actual`;
       const diffDirPath = `${this.componentFilePath}/diff`;
-      console.log('Remove all generated dirs')
-      await exec(`rm -rf ${expectedDirPath}`)
-      await exec(`rm -rf ${actualDirPath}`)
-      await exec(`rm -rf ${diffDirPath}`)
       this.fileNames.forEach((testCase: string) => {
         it(`should return the screenshot of "${testCase}"`, () => {
           this.openTestCase(testCase);
