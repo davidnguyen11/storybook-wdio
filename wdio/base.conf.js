@@ -1,4 +1,5 @@
 const hook = require('css-modules-require-hook');
+const { getImageComparisonServiceConfig } = require('./utils')
 
 exports.baseConfig = {
   runner: 'local',
@@ -8,21 +9,7 @@ exports.baseConfig = {
     // 'path/to/excluded/files'
   ],
   maxInstances: 1,
-  services: [
-    [
-      // (see https://github.com/wswebcreation/webdriver-image-comparison/blob/master/docs/OPTIONS.md#method-options)
-      'image-comparison',
-      {
-        formatImageName: '{browserName}-{tag}',
-        clearRuntimeFolder: true,
-        savePerInstance: false,
-        autoSaveBaseline: true,
-        blockOutStatusBar: true,
-        blockOutToolBar: true,
-        disableCSSAnimation: true,
-      },
-    ],
-  ],
+  services: [getImageComparisonServiceConfig('pc')],
   sync: true,
   logLevel: 'error',
   deprecationWarnings: true,
@@ -40,6 +27,7 @@ exports.baseConfig = {
   before: function(capabilities, specs) {
     // require('ts-node/register');
     require('ts-node').register({ files: true });
+    browser.setWindowSize(1376, 798);
   },
   beforeSession: function() {
     // require.extensions['.less'] = require.extensions['.less'];
