@@ -10,7 +10,8 @@
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "test:chrome": "wdio run ./wdio/chrome.conf.js --spec",
-    "test:firefox": "wdio run ./wdio/firefox.conf.js --spec"
+    "test:firefox": "wdio run ./wdio/firefox.conf.js --spec",
+    "test": "npm run test:chrome && npm run test:firefox"
   },
   "keywords": [
     "storybook",
