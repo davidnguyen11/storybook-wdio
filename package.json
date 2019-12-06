@@ -1,7 +1,7 @@
 {
   "name": "storybook-wdio",
   "version": "1.0.0",
-  "description": "",
+  "description": "Storybook with visual regression testing using WebdriverIO & Selenium",
   "main": "index.js",
   "scripts": {
     "build": "build-storybook -c .storybook -o build",
@@ -11,7 +11,7 @@
     "contributors:generate": "all-contributors generate",
     "test:chrome": "wdio run ./wdio/chrome.conf.js --spec",
     "test:firefox": "wdio run ./wdio/firefox.conf.js --spec",
-    "test": "npm run test:chrome"
+    "test": "npm run test:chrome && npm run test:firefox"
   },
   "keywords": [
     "storybook",
