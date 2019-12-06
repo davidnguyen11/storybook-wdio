@@ -1,28 +1,16 @@
-const { join } = require('path');
 const hook = require('css-modules-require-hook');
 
-exports.config = {
+exports.baseConfig = {
   runner: 'local',
-  // hostname: '127.0.0.1',
-  // port: 4444,
+  hostname: process.env.WDIO_HOST || '127.0.0.1',
   specs: ['**/tests/**/index.spec.ts'],
   exclude: [
     // 'path/to/excluded/files'
   ],
   maxInstances: 1,
-  capabilities: [
-    {
-      maxInstances: 1,
-      browserName: 'chrome',
-      'goog:chromeOptions': {
-        // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
-        args: ['--disable-gpu'],
-      },
-    },
-  ],
   services: [
     [
-      // https://github.com/wswebcreation/webdriver-image-comparison/blob/master/docs/OPTIONS.md#method-options
+      // (see https://github.com/wswebcreation/webdriver-image-comparison/blob/master/docs/OPTIONS.md#method-options)
       'image-comparison',
       {
         formatImageName: '{browserName}-{tag}',
