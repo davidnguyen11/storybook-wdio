@@ -1,16 +1,10 @@
-const { baseConfig, ports } = require('./base.conf');
+const { baseConfig } = require('./base.conf');
+const { getChromeConfig } = require('./utils');
+
+const chromeConfig = getChromeConfig();
 
 exports.config = {
   ...baseConfig,
   port: parseInt(process.env.WDIO_PORT || 4444),
-  capabilities: [
-    {
-      maxInstances: 1,
-      browserName: 'chrome',
-      'goog:chromeOptions': {
-        // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
-        args: ['--disable-gpu'],
-      },
-    },
-  ],
+  capabilities: [chromeConfig],
 };
