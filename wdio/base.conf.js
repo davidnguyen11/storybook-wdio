@@ -3,7 +3,7 @@ const hook = require('css-modules-require-hook');
 exports.baseConfig = {
   runner: 'local',
   hostname: process.env.WDIO_HOST || '127.0.0.1',
-  specs: ['**/tests/**/index.spec.ts'],
+  specs: ['**/*.spec.ts'],
   exclude: [
     // 'path/to/excluded/files'
   ],
