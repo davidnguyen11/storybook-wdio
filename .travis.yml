@@ -9,8 +9,7 @@ before_script:
   - npm run storybook-production &
 script:
   - docker-compose up -d
-  - npm run test:chrome
-  - npm run test:firefox
+  - npm run test
 branches:
   only:
     - master
