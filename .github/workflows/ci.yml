@@ -15,5 +15,5 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm run storybook-production &
-      - run: docker-compose up -d
+      - run: docker run -d -p 4444:4444 -p 5900:5900 selenium/standalone-chrome-debug
       - run: npm run test
