@@ -10,8 +10,6 @@ jobs:
       - image: circleci/node:10.16.3
       - image: selenium/standalone-chrome-debug
         name: selenium_chrome
-      - image: selenium/standalone-firefox-debug
-        name: selenium_firefox
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -40,5 +38,4 @@ jobs:
           name: Starting the storybook with production mode
           command: npm run storybook-production
           background: true
-      - run: WDIO_HOST=selenium_chrome WDIO_PORT=4444 npm run test:chrome
-      - run: WDIO_HOST=selenium_firefox WDIO_PORT=4444 npm run test:firefox
+      - run: WDIO_HOST=selenium_chrome WDIO_PORT=4444 npm run test

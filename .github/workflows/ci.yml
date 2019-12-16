@@ -16,5 +16,4 @@ jobs:
       - run: npm run build
       - run: npm run storybook-production &
       - run: docker-compose up -d
-      - run: npm run test:chrome
-      - run: npm run test:firefox
+      - run: npm run test
