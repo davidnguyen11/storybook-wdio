@@ -8,12 +8,9 @@ before_script:
   - npm run build
   - npm run storybook-production &
 script:
-  - docker run --name=selenium -d -p 4444:4444 -p 5900:5900 selenium/standalone-chrome-debug
+  - docker-compose up -d
   - npm run test:chrome
-  - docker rm -f selenium
-  - docker run --name=selenium -d -p 5555:4444 -p 5901:5900 selenium/standalone-firefox-debug
   - npm run test:firefox
-  - docker rm -f selenium
 branches:
   only:
     - master
