@@ -10,16 +10,21 @@
 
 [https://hub.docker.com/r/selenium/standalone-chrome-debug](https://hub.docker.com/r/selenium/standalone-chrome-debug)
 
-**Run docker**
+**Start selenium chrome & firefox with docker-compose  **
 
-*chrome*
 ```bash
-docker run -d -p 4444:4444 -p 5900:5900 selenium/standalone-chrome-debug
+docker-compose up
 ```
 
-*firefox*
+*Advance* You can customize export ports by arguments if default ports are already allocated
+- CHROME_MAIN_PORT: main port for selenium chrome. Default: 4444
+- CHROME_DEBUG_PORT: main port for selenium chrome - for screen sharing. Default: 5900
+- FIREFOX_MAIN_PORT: main port for selenium firefox. Default: 5555
+- FIREFOX_DEBUG_PORT: main port for selenium firefox - for screen sharing. Default: 5901
+
+Example
 ```bash
-docker run -d -p 5555:4444 -p 5901:5900 selenium/standalone-firefox-debug
+CHROME_MAIN_PORT=6666 CHROME_DEBUG_PORT=5909 docker-compose up
 ```
 
 **Screen Sharing**
