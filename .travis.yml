@@ -8,7 +8,7 @@ before_script:
   - npm run build
   - npm run storybook-production &
 script:
-  - docker-compose up -d
+  - docker run -d -p 4444:4444 -p 5900:5900 selenium/standalone-chrome-debug
   - npm run test
 branches:
   only:
