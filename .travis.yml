@@ -5,6 +5,7 @@ node_js:
 install:
   - 'npm i'
 before_script:
+  - npm run lint
   - npm run build
   - npm run storybook-production &
 script:
