@@ -43,9 +43,19 @@
         "review",
         "bug"
       ]
+    },
+    {
+      "login": "haoict",
+      "name": "Nguyen Van Hao",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7247750?v=4",
+      "profile": "http://haoict.github.io",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "repoHost": "https://github.com",
   "contributorsPerLine": 7,
-  "commitConvention": "none"
+  "commitConvention": "none",
+  "skipCi": true
 }

@@ -11,11 +11,7 @@ export class Text extends React.Component<Props> {
     const { background } = this.props;
     return (
       <div className={style.container}>
-        <span
-          className={`${style[`background-${background}`]}`}
-        >
-          {this.props.children}
-        </span>
+        <span className={`${style[`background-${background}`]}`}>{this.props.children}</span>
       </div>
     );
   }
