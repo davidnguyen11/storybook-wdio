@@ -52,6 +52,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "3BenLee",
+      "name": "Ben Lee",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/35267414?v=4",
+      "profile": "https://github.com/3BenLee",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "repoHost": "https://github.com",
