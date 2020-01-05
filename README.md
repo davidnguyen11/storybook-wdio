@@ -6,33 +6,34 @@
   <br />
 </p>
 
-The storybook boilerplate which combines ReactJS, Typescript and Visual Regression test using [WebDriverIO](https://webdriver.io/)
+Storybook boilerplate which combines ReactJS, Typescript and Visual Regression testing using [WebDriverIO](https://webdriver.io/)
 
 [![Build Status](https://travis-ci.com/davidnguyen179/storybook-wdio.svg?branch=master)](https://travis-ci.com/davidnguyen179/storybook-wdio) [![CircleCI](https://circleci.com/gh/davidnguyen179/storybook-wdio.svg?style=svg)](https://circleci.com/gh/davidnguyen179/storybook-wdio) [![GithubCI](https://github.com/davidnguyen179/storybook-visual-regression-testing-boilerplate/workflows/CI/badge.svg)](https://github.com/davidnguyen179/storybook-visual-regression-testing-boilerplate/actions)
 
 <hr />
 
-* [Motivation](#motivation)
-* [Getting started](#getting-started)
-* [How to create React component & Story](#how-to-create-react-component---story)
-  + [Structure](#structure)
-  + [Component template](#component-template)
-  + [Creating story](#creating-story)
-* [Visual regression testing](#visual-regression-testing)
-  + [Run selenium Docker image](#run-selenium-docker-image)
-  + [Create entry test file](#create-entry-test-file)
-  + [Run the visual regression test](#run-the-visual-regression-test)
-  + [Debug visual regression test](#debug-visual-regression-test)
-    - [Mac](#mac)
-* [Contributors](#contributors)
+- [Storybook Visual Regression boilerplate](#storybook-visual-regression-boilerplate)
+  - [Motivation](#motivation)
+  - [Getting started](#getting-started)
+  - [How to create a React Component along with a Story](#how-to-create-a-react-component-along-with-a-story)
+    - [Structure](#structure)
+    - [Component template](#component-template)
+    - [Creating a Story](#creating-a-story)
+  - [Visual Regression Testing](#visual-regression-testing)
+    - [Run selenium Docker image](#run-selenium-docker-image)
+    - [Create entry test file](#create-entry-test-file)
+    - [Run the visual regression test](#run-the-visual-regression-test)
+    - [Debug visual regression test](#debug-visual-regression-test)
+      - [Mac](#mac)
+  - [Contributors](#contributors)
 
 ## Motivation
 
-The modern web development heavily depends on the ReactJS to build web components combines with Storybook which helps to create the Design System and the component base that can be reused between products. Especially, when working in a large team where the single component which is used by other products can be modified by a bunch of developers. Even though the changes are small which cannot be seen at the review stage, but it can affect other features or products. For this reason, this boilerplate is built to minimize the risk of the component modification that affects the product by using visual regression testing.
+ As we all know ReactJS continues to lead the way as far as being the most widely used Javascript library and in the opinion of many, the most powerful. If you combine ReactJS with Storybook and visual regression testing from Webdriver IO it is possible to create a design system and a custom component library that can be safely reused between products and/or other teams. Sometimes when sharing a UI library among a large group or multiple teams we run in to issues when one person makes what might seem to be trivial or small change to a shared component. These changes might cause issues for other users who are using the same component in another place. Often times small modifications or changes can slip through code reviews too. With this boilerplate we incorporated the ability to run visual regression testing on each component. This allows developers to see even the slightest of changes and decide if it is acceptible or not before commiting to the changes.
 
 ## Getting started
 
-To run this project, you need to follow some steps:
+To run this project please follow these steps:
 
 1. Make sure you have [Docker]([https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop)) & [NodeJS]([https://nodejs.org/en/](https://nodejs.org/en/)) installed on your machine
 2. Pull the [standalone-chrome-debug]([https://hub.docker.com/r/selenium/standalone-chrome-debug](https://hub.docker.com/r/selenium/standalone-chrome-debug)) or [standalone-firefox-debug]([https://hub.docker.com/r/selenium/standalone-firefox-debug/](https://hub.docker.com/r/selenium/standalone-firefox-debug/)) docker image
@@ -48,7 +49,7 @@ npm install
 npm run storybook
 ```
 
-## How to create React component & Story
+## How to create a React Component along with a Story
 
 ### Structure
 
@@ -120,7 +121,7 @@ interface EventProps {
 }
 ```
 
-### Creating story
+### Creating a Story
 
 File name pattern: `src/components/<component-name>/tests/data/<test-case-name>.spec.tsx`
 
@@ -148,13 +149,13 @@ export const test: Props = {
 };
 ```
 
-## Visual regression testing
+## Visual Regression Testing
 
-This type of test produces the snapshots of the component as the `*.png` files.
+This type of testing produces snapshots of the component as `*.png` files.
 
 *For example:*
 
-Here is the visual regression test for `button` component
+Here is a visual regression test for `button` component
 
 **button with large size**
 
@@ -174,7 +175,7 @@ Here is the visual regression test for `button` component
   <img alt="button small" src="https://raw.githubusercontent.com/davidnguyen179/storybook-wdio/master/src/components/button/tests/expected/pc-chrome-button-small.png" />
 </p>
 
-Here is the visual regression test for `text` component
+Here is a visual regression test for `text` component
 
 **text with black background**
 
@@ -188,12 +189,13 @@ Here is the visual regression test for `text` component
   <img alt="button small" src="https://raw.githubusercontent.com/davidnguyen179/storybook-wdio/master/src/components/text/tests/expected/pc-chrome-text-with-red-background.png" />
 </p>
 
-After completing the React component, to run the visual regression test, you need to do some set up
+After completing the React component, to run the visual regression test, you need to do a little set up.
+
 ### Run selenium Docker image
 
-> Make sure you started the Docker
+> Make sure to start Docker
 
-To run the selenium of web drivers, you can choose either running Docker commands
+To run Selenium of web drivers, you can choose either running Docker commands
 
 ```bash
 docker run -d -p 4444:4444 -p 5900:5900 selenium/standalone-chrome-debug
@@ -207,12 +209,12 @@ docker-compose up
 
 **Advance:** You can customize export ports by arguments if default ports are already allocated
 
-| Port | Default | Description |
-|--|--|--|
-| CHROME_MAIN_PORT | 4444 | port of selenium chrome |
-| CHROME_DEBUG_PORT | 5900 | port of selenium chrome debug - for screen sharing |
-| FIREFOX_MAIN_PORT | 5555 | port of selenium firefox |
-| FIREFOX_DEBUG_PORT | 5901 | port of selenium firefox debug - for screen sharing |
+| Port               | Default | Description                                         |
+| ------------------ | ------- | --------------------------------------------------- |
+| CHROME_MAIN_PORT   | 4444    | port of selenium chrome                             |
+| CHROME_DEBUG_PORT  | 5900    | port of selenium chrome debug - for screen sharing  |
+| FIREFOX_MAIN_PORT  | 5555    | port of selenium firefox                            |
+| FIREFOX_DEBUG_PORT | 5901    | port of selenium firefox debug - for screen sharing |
 
 Example
 ```bash
@@ -270,7 +272,7 @@ Hostname: `YOUR_MACHINE_IP`:5900
 Password: secret
 ```
 2. Run test
-3. Navigate to `Screen Sharing` to see the step by step running the test
+3. Navigate to `Screen Sharing` to see the step by step for running the test
 
 ## Contributors
 
@@ -289,3 +291,4 @@ Password: secret
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
