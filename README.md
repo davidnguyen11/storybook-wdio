@@ -1,7 +1,7 @@
 # Storybook Visual Regression boilerplate
 
 <p align="center">
-  <img width="500" alt="Storybook Visual Regression boilerplate" src="https://user-images.githubusercontent.com/6290720/71733711-8c758580-2e8d-11ea-95b2-b7f967c9816e.png" />
+  <img width="500" alt="Storybook Visual Regression boilerplate" src="https://user-images.githubusercontent.com/6290720/71781300-51e82600-3010-11ea-86e3-83af5a3a0e20.png" />
   <br />
   <br />
 </p>
@@ -35,8 +35,8 @@ Storybook boilerplate which combines ReactJS, Typescript and Visual Regression t
 
 To run this project please follow these steps:
 
-1. Make sure you have [Docker]([https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop)) & [NodeJS]([https://nodejs.org/en/](https://nodejs.org/en/)) installed on your machine
-2. Pull the [standalone-chrome-debug]([https://hub.docker.com/r/selenium/standalone-chrome-debug](https://hub.docker.com/r/selenium/standalone-chrome-debug)) or [standalone-firefox-debug]([https://hub.docker.com/r/selenium/standalone-firefox-debug/](https://hub.docker.com/r/selenium/standalone-firefox-debug/)) docker image
+1. Make sure you have [Docker](https://www.docker.com/products/docker-desktop) & [NodeJS](https://nodejs.org/en/) installed on your machine
+2. Pull the [standalone-chrome-debug](https://hub.docker.com/r/selenium/standalone-chrome-debug) or [standalone-firefox-debug](https://hub.docker.com/r/selenium/standalone-firefox-debug/) docker image
 3. Clone this repo
 4. Install dependencies
 
@@ -55,14 +55,14 @@ npm run storybook
 
 ```bash
 my-react-component
-|-- tests/
-     |-- data/
-         |-- story-1.spec.tsx
-         |-- story-2.spec.tsx
-         |-- story-3.spec.tsx
-     |-- index.spec.ts
-|-- index.tsx
-|-- style.less
+  |-- tests/
+      |-- data/
+          |-- story-1.spec.tsx
+          |-- story-2.spec.tsx
+          |-- story-3.spec.tsx
+      |-- index.spec.ts
+  |-- index.tsx
+  |-- style.less
 ```
 
 ### Component template
