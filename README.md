@@ -55,12 +55,12 @@ npm run storybook
 
 ```bash
 my-react-component
-  |-- tests/
-      |-- data/
-          |-- story-1.spec.tsx
-          |-- story-2.spec.tsx
-          |-- story-3.spec.tsx
-      |-- index.spec.ts
+  |-- stories/
+      |-- vr-test/
+          |-- index.spec.ts
+      |-- story-1.story.tsx
+      |-- story-2.story.tsx
+      |-- story-3.story.tsx
   |-- index.tsx
   |-- style.less
 ```
@@ -85,16 +85,13 @@ export class Button extends React.Component<Props> {
   }
 }
 
-export type Props = DataProps & EventProps;
+export type Props = DataProps;
 
 interface DataProps {
   /** Children node */
   children: string | React.ReactNode;
   /** Size of button */
   size?: 'small' | 'medium' | 'large';
-}
-
-interface EventProps {
   /** Click event */
   onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 }
@@ -130,7 +127,7 @@ Example:
 **src/components/button/tests/data/large.spec.tsx**
 
 ```tsx
-import { Props } from '../..'; // import the Props from the component
+import { Props } from '..'; // import the Props from the component
 
 export const test: Props = {
   children: 'large size',
@@ -141,7 +138,7 @@ export const test: Props = {
 **src/components/button/tests/data/small.spec.tsx**
 
 ```tsx
-import { Props } from '../..'; // import the Props from the component
+import { Props } from '..'; // import the Props from the component
 
 export const test: Props = {
   children: 'small size',
@@ -160,19 +157,19 @@ Here is a visual regression test for `button` component
 **button with large size**
 
 <p>
-  <img alt="button large" src="https://raw.githubusercontent.com/davidnguyen179/storybook-wdio/master/src/components/button/tests/expected/pc-chrome-button-large.png" />
+  <img alt="button large" src="https://raw.githubusercontent.com/davidnguyen179/storybook-wdio/master/src/components/button/stories/vr-test/expected/desktop-chrome-button-large.png" />
 </p>
 
 **button with medium size**
 
 <p>
-  <img alt="button medium" src="https://raw.githubusercontent.com/davidnguyen179/storybook-wdio/master/src/components/button/tests/expected/pc-chrome-button-medium.png" />
+  <img alt="button medium" src="https://raw.githubusercontent.com/davidnguyen179/storybook-wdio/master/src/components/button/stories/vr-test/expected/desktop-chrome-button-medium.png" />
 </p>
 
 **button with small size**
 
 <p>
-  <img alt="button small" src="https://raw.githubusercontent.com/davidnguyen179/storybook-wdio/master/src/components/button/tests/expected/pc-chrome-button-small.png" />
+  <img alt="button small" src="https://raw.githubusercontent.com/davidnguyen179/storybook-wdio/master/src/components/button/stories/vr-test/expected/desktop-chrome-button-small.png" />
 </p>
 
 Here is a visual regression test for `text` component
@@ -180,13 +177,13 @@ Here is a visual regression test for `text` component
 **text with black background**
 
 <p>
-  <img alt="button medium" src="https://raw.githubusercontent.com/davidnguyen179/storybook-wdio/master/src/components/text/tests/expected/pc-chrome-text-with-black-background.png" />
+  <img alt="button medium" src="https://raw.githubusercontent.com/davidnguyen179/storybook-wdio/master/src/components/text/stories/vr-test/expected/desktop-chrome-text-with-black-background.png" />
 </p>
 
 **text with red background**
 
 <p>
-  <img alt="button small" src="https://raw.githubusercontent.com/davidnguyen179/storybook-wdio/master/src/components/text/tests/expected/pc-chrome-text-with-red-background.png" />
+  <img alt="button small" src="https://raw.githubusercontent.com/davidnguyen179/storybook-wdio/master/src/components/text/stories/vr-test/expected/desktop-chrome-text-with-red-background.png" />
 </p>
 
 After completing the React component, to run the visual regression test, you need to do a little set up.
@@ -223,11 +220,11 @@ CHROME_MAIN_PORT=6666 CHROME_DEBUG_PORT=5909 docker-compose up
 
 ### Create entry test file
 
-Create the file `src/components/<component-name>/tests/index.spec.ts` with code below
+Create the file `src/components/<component-name>/stories/vr-test/index.spec.ts` with code below
 
 ```ts
-import { VisualRegressionTest } from '../../../../lib/test/visual-regression-test';
-import * as style from '../style.less';
+import { VisualRegressionTest } from 'lib/test/visual-regression-test';
+import * as style from '../../style.less';
 
 new VisualRegressionTest(__dirname, style.container).run();
 ```
@@ -238,16 +235,16 @@ new VisualRegressionTest(__dirname, style.container).run();
 
 > To run the visual regression test, make sure your `storybook` started.
 
-**PC**
+**Desktop**
 
 ```bash
-npm run test:chrome src/components/<component-name>/tests/index.spec.ts
+npm run test:chrome src/components/<component-name>/stories/vr-test/index.spec.ts
 ```
 
 **Smartphone**
 
 ```bash
-npm run test:chrome:sp src/components/<component-name>/tests/index.spec.ts
+npm run test:chrome:sp src/components/<component-name>/stories/vr-test/index.spec.ts
 ```
 
 **Run all tests**

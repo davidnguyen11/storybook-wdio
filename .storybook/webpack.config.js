@@ -49,6 +49,10 @@ module.exports = ({ config }) => {
     path.resolve(__dirname, '../src'),
   ];
 
+  config.resolve.alias = {
+    lib: path.resolve(__dirname, '../lib'),
+  };
+
   config.resolve.extensions.push('.ts', '.tsx', '.less');
 
   config.plugins.push(
