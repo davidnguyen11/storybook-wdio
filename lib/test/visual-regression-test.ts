@@ -71,11 +71,12 @@ export class VisualRegressionTest {
 
   private getTestCaseNames() {
     return fs
-      .readdirSync(`${this.componentFilePath}/data`)
-      .map((item: string) => path.basename(item, '.spec.tsx'));
+      .readdirSync(path.dirname(`${this.componentFilePath}`))
+      .filter((item: string) => item.includes('.story.tsx'))
+      .map((item: string) => path.basename(item, '.story.tsx'));
   }
 
   private getComponentFileName() {
-    return path.basename(path.dirname(this.componentFilePath));
+    return path.basename(path.dirname(path.dirname(this.componentFilePath)));
   }
 }

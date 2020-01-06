@@ -54,7 +54,7 @@ module.exports = ({ config }) => {
   config.plugins.push(
     new webpack.DefinePlugin({
       COMPONENT_PATTERN: /^.*\index.tsx$/,
-      PROPS_PATTERN: /^.*\.spec.tsx$/,
+      PROPS_PATTERN: /^.*\.story.tsx$/,
     })
   );
 

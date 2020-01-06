@@ -1,5 +1,6 @@
 const { baseConfig } = require('./base.conf');
 const { getImageComparisonServiceConfig, getFirefoxConfig } = require('./utils');
+const { PLATFORM }  = require('./utils');
 
 const firefoxConfig = getFirefoxConfig();
 
@@ -7,7 +8,7 @@ exports.config = {
   ...baseConfig,
   port: parseInt(process.env.WDIO_PORT || 5555),
   capabilities: [firefoxConfig],
-  services: [getImageComparisonServiceConfig('sp')],
+  services: [getImageComparisonServiceConfig(PLATFORM.smartphone)],
   before: function() {
     baseConfig.before();
     /*

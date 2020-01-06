@@ -22,7 +22,7 @@ export function generateComponents() {
     const dataProps = moduleProps.keys().filter(item => item.startsWith(`${dirname(spec)}${sep}`));
 
     dataProps.forEach(key => {
-      const caseName = basename(key, '.spec.tsx').replace(/-/g, ' ');
+      const caseName = basename(key, '.story.tsx').replace(/-/g, ' ');
       const props = moduleProps(key).test;
       story.add(caseName, () => <Component {...props} />);
     });

@@ -1,8 +1,14 @@
+const PLATFORM = {
+  desktop: 'desktop',
+  smartphone: 'smartphone',
+  tablet: 'tablet',
+};
+
 /**
  * Get config of "image-comparison" service
- * @platform could be "pc" (Desktop) - "sp" (Smartphone) - "tb" (Tablet)
+ * @platform could be "desktop" - "smartphone" - "tablet"
  */
-function getImageComparisonServiceConfig(platform) {
+ function getImageComparisonServiceConfig(platform) {
   return [
     // (see https://github.com/wswebcreation/webdriver-image-comparison/blob/master/docs/OPTIONS.md#method-options)
     'image-comparison',
@@ -48,6 +54,7 @@ function getFirefoxConfig() {
 }
 
 module.exports = {
+  PLATFORM,
   getChromeConfig,
   getFirefoxConfig,
   getImageComparisonServiceConfig,
