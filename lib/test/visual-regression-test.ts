@@ -12,14 +12,12 @@ export class VisualRegressionTest {
   private fileNames: Array<string>;
   private componentName: string;
   private elementClassName?: string;
-  private prefixElementWrapperClassName?: string;
 
   constructor(path: string, elementClassName?: string) {
     this.componentFilePath = path;
     this.fileNames = this.getTestCaseNames();
     this.componentName = this.getComponentFileName();
     this.elementClassName = elementClassName;
-    this.prefixElementWrapperClassName = this.elementClassName && this.elementClassName.split('--')[0];
   }
 
   public run() {
@@ -66,7 +64,7 @@ export class VisualRegressionTest {
   }
 
   private getElement() {
-    return $(`[class^="${this.prefixElementWrapperClassName}"]`);
+    return $(`[class*="${this.elementClassName}"]`);
   }
 
   private getTestCaseNames() {

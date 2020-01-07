@@ -27,9 +27,10 @@ module.exports = ({ config }) => {
           modules: true,
           localsConvention: 'camelCase', // Allow access css module with camelCase when use the "." to access attribute
           modules: {
-            mode: 'local',
             localIdentName: '[local]--[hash:base64:5]',
-            context: path.resolve(__dirname, 'src'),
+            // Do not add "mode: local" or "context"
+            // Because it affects the "css-modules-require-hook"
+            // The storybook and testing environment generates different hashes for class name
           },
         },
       },

@@ -85,13 +85,16 @@ export class Button extends React.Component<Props> {
   }
 }
 
-export type Props = DataProps;
+export type Props = DataProps & EventProps;
 
 interface DataProps {
   /** Children node */
   children: string | React.ReactNode;
   /** Size of button */
   size?: 'small' | 'medium' | 'large';
+}
+
+interface EventProps {
   /** Click event */
   onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 }
