@@ -34,6 +34,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: npm run lint
+      - run: npm run stylelint
       - run: npm run build
       - run:
           name: Starting the storybook with production mode

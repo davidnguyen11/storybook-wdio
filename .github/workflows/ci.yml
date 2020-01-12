@@ -4,7 +4,6 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -14,6 +13,7 @@ jobs:
           node-version: '10.x'
       - run: npm install
       - run: npm run lint
+      - run: npm run stylelint
       - run: npm run build
       - run: npm run storybook-production &
       - run: docker run -d -p 4444:4444 -p 5900:5900 selenium/standalone-chrome-debug
