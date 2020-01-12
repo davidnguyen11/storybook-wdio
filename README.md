@@ -250,6 +250,12 @@ npm run test:chrome src/components/<component-name>/stories/vr-test/index.spec.t
 npm run test:chrome:sp src/components/<component-name>/stories/vr-test/index.spec.ts
 ```
 
+**Both Desktop and Smartphone**
+
+```bash
+npm test src/components/<component-name>/stories/vr-test/index.spec.ts
+```
+
 **Run all tests**
 
 ```bash

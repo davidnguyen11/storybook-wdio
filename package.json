@@ -16,7 +16,7 @@
     "test:chrome:sp": "wdio run ./wdio/sp.chrome.conf.js --spec",
     "test:firefox": "wdio run ./wdio/firefox.conf.js --spec",
     "test:firefox:sp": "wdio run ./wdio/sp.firefox.conf.js --spec",
-    "test": "npm run test:chrome && npm run test:chrome:sp"
+    "test": "./.scripts/vr-test.sh"
   },
   "keywords": [
     "storybook",
