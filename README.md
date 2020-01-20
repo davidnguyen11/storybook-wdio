@@ -25,7 +25,7 @@ Storybook boilerplate which combines ReactJS, Typescript and Visual Regression t
     - [Run the visual regression test](#run-the-visual-regression-test)
     - [Debug visual regression test](#debug-visual-regression-test)
       - [Mac](#mac)
-  - [Contributors](#contributors)
+  - [Contributors ✨](#contributors)
 
 ## Motivation
 
@@ -123,11 +123,11 @@ interface EventProps {
 
 ### Creating a Story
 
-File name pattern: `src/components/<component-name>/tests/data/<test-case-name>.spec.tsx`
+File name pattern: `src/components/<component-name>/stories/<test-case-name>.story.tsx`
 
 Example:
 
-**src/components/button/tests/data/large.spec.tsx**
+**src/components/button/stories/large.story.tsx**
 
 ```tsx
 import { Props } from '..'; // import the Props from the component
@@ -138,7 +138,7 @@ export const test: Props = {
 };
 ```
 
-**src/components/button/tests/data/small.spec.tsx**
+**src/components/button/stories/small.story.tsx**
 
 ```tsx
 import { Props } from '..'; // import the Props from the component
@@ -280,7 +280,7 @@ Password: secret
 2. Run test
 3. Navigate to `Screen Sharing` to see the step by step for running the test
 
-## Contributors
+## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
