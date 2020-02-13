@@ -247,7 +247,7 @@ npm run test:chrome src/components/<component-name>/stories/vr-test/index.spec.t
 **Smartphone**
 
 ```bash
-npm run test:chrome:sp src/components/<component-name>/stories/vr-test/index.spec.ts
+npm run test:chrome:smartphone src/components/<component-name>/stories/vr-test/index.spec.ts
 ```
 
 **Both Desktop and Smartphone**

@@ -13,9 +13,9 @@
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "test:chrome": "wdio run ./wdio/chrome.conf.js --spec",
-    "test:chrome:sp": "wdio run ./wdio/sp.chrome.conf.js --spec",
+    "test:chrome:smartphone": "wdio run ./wdio/smartphone.chrome.conf.js --spec",
     "test:firefox": "wdio run ./wdio/firefox.conf.js --spec",
-    "test:firefox:sp": "wdio run ./wdio/sp.firefox.conf.js --spec",
+    "test:firefox:smartphone": "wdio run ./wdio/smartphone.firefox.conf.js --spec",
     "test": "./.scripts/vr-test.sh"
   },
   "keywords": [
