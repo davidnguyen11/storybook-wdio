@@ -11,6 +11,11 @@ module.exports = ({ config }) => {
       // Optional
       {
         loader: require.resolve('react-docgen-typescript-loader'),
+        options: {
+          // Provide the path to your tsconfig.json so that your stories can
+          // display types from outside each individual story.
+          tsconfigPath: path.resolve(__dirname, '../tsconfig.json'),
+        },
       },
     ],
   });
@@ -59,7 +64,7 @@ module.exports = ({ config }) => {
   config.plugins.push(
     new webpack.DefinePlugin({
       COMPONENT_PATTERN: /^.*\index.tsx$/,
-      PROPS_PATTERN: /^.*\.story.tsx$/,
+      PROPS_PATTERN: /^.*\.story.([tj]sx)$/,
     })
   );
 
