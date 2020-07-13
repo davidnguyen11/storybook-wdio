@@ -8,7 +8,7 @@
 
 Storybook boilerplate which combines ReactJS, Typescript and Visual Regression testing using [WebDriverIO](https://webdriver.io/)
 
-[![Build Status](https://travis-ci.com/davidnguyen179/storybook-wdio.svg?branch=master)](https://travis-ci.com/davidnguyen179/storybook-wdio) [![CircleCI](https://circleci.com/gh/davidnguyen179/storybook-wdio.svg?style=svg)](https://circleci.com/gh/davidnguyen179/storybook-wdio) [![GithubCI](https://github.com/davidnguyen179/storybook-visual-regression-testing-boilerplate/workflows/CI/badge.svg)](https://github.com/davidnguyen179/storybook-visual-regression-testing-boilerplate/actions)
+[![Build Status](https://travis-ci.com/davidnguyen179/storybook-wdio.svg?branch=master)](https://travis-ci.com/davidnguyen179/storybook-wdio)
 
 <hr />
 

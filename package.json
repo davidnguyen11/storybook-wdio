@@ -27,8 +27,7 @@
   ],
   "author": "David Nguyen <dzungnguyen179@gmail.com> (https://www.dzungnguyen.dev/)",
   "contributors": [
-    "Hoc Nguyen <hoc.nguyenviet90@gmail.com> (hoc.nguyenviet90@gmail.com)",
-    "Khoa Do <ddangkhoa94@gmail.com> (ddangkhoa94@gmail.com)"
+    "Hoc Nguyen <hoc.nguyenviet90@gmail.com> (hoc.nguyenviet90@gmail.com)"
   ],
   "license": "ISC",
   "devDependencies": {
